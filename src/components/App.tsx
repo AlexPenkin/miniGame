@@ -3,6 +3,7 @@ import { Settings } from "./Settings";
 import { GameField } from "./GameField";
 import ISize from '../interfaces/ISize';
 import IAppState from '../interfaces/IAppState';
+import IEventTarget from '../interfaces/IEventTarget';
 
 // 'HelloProps' describes the shape of props.
 // State is never set so we use the 'undefined' type.
@@ -20,6 +21,7 @@ export default class App extends React.Component<undefined, IAppState> {
                     x: 0,
                     y: 0
                 },
+                color: 'green',
                 isAnimates: false
             },
             gameField: {
@@ -31,8 +33,13 @@ export default class App extends React.Component<undefined, IAppState> {
         };
     }
 
-    handleSize(event: React.ChangeEvent<HTMLInputElement>, key: string) {
-  
+    handleSize(event: React.ChangeEvent<HTMLInputElement>, key: string) {          
+        var val: string = event.target.value;
+        this.setState((prev: IAppState) => {
+            const newObj: ISize = prev.gameField.size;
+            newObj[key] = val;
+            return newObj;
+        })
     }
 
     render() {
@@ -42,11 +49,11 @@ export default class App extends React.Component<undefined, IAppState> {
                     size={this.state.gameField.size}
                     dotHero={this.state.dotHero}
                 />
-                {/*<Settings
-                    height={this.state.size.height}
-                    width={this.state.size.width}
+                <Settings
+                    height={this.state.gameField.size.height}
+                    width={this.state.gameField.size.width}
                     handleSize={this.handleSize}
-                />*/}
+                />
             </div >
         );
     }

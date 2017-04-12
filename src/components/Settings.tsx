@@ -9,7 +9,7 @@ export const Settings = (props: PropsSettings) => (
                 value={props.height}
                 onChange={(e) => props.handleSize(e, 'height')}                
             />
-             <input
+             <input   
                 type="number"
                 value={props.width}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => props.handleSize(e, 'width')}                 
