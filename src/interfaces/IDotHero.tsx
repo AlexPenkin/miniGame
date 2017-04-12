@@ -5,7 +5,8 @@ interface IDotHero {
    size: ISize,
    position: IPosition2D,
    color: string,
-   isAnimates: boolean;
+   isAnimates: boolean,
+   handleClickOnField?(): void
 }
 
 export default IDotHero;

@@ -4,6 +4,7 @@ import { GameField } from "./GameField";
 import ISize from '../interfaces/ISize';
 import IAppState from '../interfaces/IAppState';
 import IEventTarget from '../interfaces/IEventTarget';
+import IPosition2D from '../interfaces/I2DPosition';
 
 // 'HelloProps' describes the shape of props.
 // State is never set so we use the 'undefined' type.
@@ -42,12 +43,16 @@ export default class App extends React.Component<undefined, IAppState> {
         })
     }
 
+       handleMouseCoordinatesClick(coordinates: I)
+    }
+
     render() {
         return (
             <div className="App">
                 <GameField
                     size={this.state.gameField.size}
                     dotHero={this.state.dotHero}
+                    
                 />
                 <Settings
                     height={this.state.gameField.size.height}
