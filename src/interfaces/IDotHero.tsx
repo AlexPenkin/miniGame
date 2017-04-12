@@ -6,7 +6,7 @@ interface IDotHero {
    position: IPosition2D,
    color: string,
    isAnimates: boolean,
-   handleClickOnField?(): void
+   handleClickOnGameField?(): void
 }
 
 export default IDotHero;

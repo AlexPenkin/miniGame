@@ -10,10 +10,9 @@ class Animatable {
     private animations: IAnimeJS[] = []
 
     //Constructor
-    public constructor(ref: Element) {
-        this.element = ref;
-        console.log(this);    
-        console.log(ref);
+    public constructor(id: string) {
+        this.element = document.querySelector(`#${id}`);
+        console.log(this.element)
     }
 
     // Methods
@@ -31,9 +30,12 @@ class Animatable {
         });
     }
 
-    public changeColor(color:string): void {
-        console.log(this.element)
-        this.element.style.backgroundStyle = color;
+    public changeColor(color: string): void {
+        if (this.element) {
+            console.log(this.element.style)
+            this.element.style.backgroundColor = color;
+        }
+
     }
 }
 

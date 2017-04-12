@@ -43,8 +43,14 @@ export default class App extends React.Component<undefined, IAppState> {
         })
     }
 
-       handleMouseCoordinatesClick(coordinates: I)
-    }
+    handleClickOnGameField(coordinates: IPosition2D): void {
+        console.log(coordinates);
+        this.setState((prev: IAppState) => {
+            const newObj = prev.dotHero
+            newObj.position = coordinates;
+            return newObj; 
+        })
+    }    
 
     render() {
         return (
@@ -52,7 +58,7 @@ export default class App extends React.Component<undefined, IAppState> {
                 <GameField
                     size={this.state.gameField.size}
                     dotHero={this.state.dotHero}
-                    
+                    handleClickOnGameField={this.handleClickOnGameField.bind(this)}                    
                 />
                 <Settings
                     height={this.state.gameField.size.height}
